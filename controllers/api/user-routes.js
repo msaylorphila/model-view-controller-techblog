@@ -1,6 +1,24 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+
+router.get('/logout', async (req, res) => {
+    try {
+        return res.render('logout');
+    } catch (err) {
+        console.log(err)
+    }
+
+})
+
+router.get('/', (req, res) => {
+    if (req.session.loggedIn) {
+      res.redirect('/');
+      return;
+    }
+    res.render('login');
+  });
+  
 // CREATE new user
 router.post('/', async (req, res) => {
   try {
@@ -64,6 +82,7 @@ router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
+      console.log('youre logged out')
     });
   } else {
     res.status(404).end();
