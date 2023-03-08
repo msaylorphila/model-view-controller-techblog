@@ -21,10 +21,9 @@ router.get('/login', async (req, res) => {
 
 router.get('/', async (req, res) => {
     try {
-      const dbBlogPostData = await BlogPost.findAll({ include: {model: User}})
+      const blogPostData = await BlogPost.findAll({ include: {model: User}})
       
-  
-      const blogPosts = dbBlogPostData.map((blogPost) =>
+      const blogPosts = blogPostData.map((blogPost) =>
         blogPost.get({ plain: true })
       );
       console.log(blogPosts)
@@ -46,4 +45,16 @@ router.get('/', async (req, res) => {
     res.render('login');
   });
 
+  router.get('/blogpost/:id', async (req, res) => {
+    try {
+      const dbBlogPostData = await BlogPost.findByPk(req.params.id);
+  
+      const blogpost = dbPaintingData.get({ plain: true });
+  
+      res.render('painting', { painting });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  });
 module.exports = router

@@ -1,10 +1,12 @@
 {{#each blogPosts as |blogPost|}}
 <div class="card" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-title">{{blogPost.title}}</h5>
+    <h5 id="singleBlogPost" class="card-title">{{blogPost.title}}</h5>
+    <div class="card-title">Created by: {{blogPost.username}} on: {{ format_date blogPost.createdAt}}</div>
     <p class="card-text">{{blogPost.contents}}</p>
-    <a href="#" class="btn btn-primary">{{blogPost.username}}</a>
   </div>
 </div>
 {{/each}}
+
+<script src="./js/singleblogpost.js"></script>
 
