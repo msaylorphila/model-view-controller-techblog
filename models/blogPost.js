@@ -13,8 +13,21 @@ BlogPost.init(
         autoIncrement: true,
         primaryKey: true
     },
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    contents: {
+      type: DataTypes.TEXT,
+      defaultValue: "...",
+      allowNull: false
+    },
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     user_id: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
             references: {
               model: 'user',
               key: 'id',
@@ -27,8 +40,8 @@ BlogPost.init(
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: "comment",
+    modelName: "blogPost",
   }
 );
 
-module.exports = Comment;
+module.exports = BlogPost;

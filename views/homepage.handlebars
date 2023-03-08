@@ -1,3 +1,10 @@
-<div>
-    <h1>Whats up</h1>
+{{#each blogPosts as |blogPost|}}
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{blogPost.title}}</h5>
+    <p class="card-text">{{blogPost.contents}}</p>
+    <a href="#" class="btn btn-primary">{{blogPost.username}}</a>
+  </div>
 </div>
+{{/each}}
+
