@@ -14,16 +14,12 @@ BlogPost.init(
         primaryKey: true
     },
     title: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false
     },
     contents: {
       type: DataTypes.TEXT,
       defaultValue: "...",
-      allowNull: false
-    },
-    username: {
-      type: DataTypes.STRING,
       allowNull: false
     },
     user_id: {

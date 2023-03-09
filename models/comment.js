@@ -13,6 +13,10 @@ Comment.init(
         autoIncrement: true,
         primaryKey: true
     },
+    contents: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
     user_id: {
         type: DataTypes.INTEGER,
             references: {
