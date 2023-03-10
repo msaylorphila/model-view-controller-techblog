@@ -3,11 +3,21 @@
     <h5 class="card-title">{{blogPost.title}}</h5>
      <div class="card-title">Created by: {{blogPost.user.username}} on: {{ format_date blogPost.createdAt}}</div>
     <p class="card-text">{{blogPost.contents}}</p>
-    {{#each comment as |comment| }}
-         <div class="card-title">Created by: {{blogPost.comment.user.username}} on: {{ format_date blogPost.comment.createdAt}}</div>
-    <p class="card-text">{{comment.contents}}</p>
+    {{#each blogPost.comments }}
+         <div class="card-title">Created by: {{user.username}} on: {{ format_date createdAt}}</div>
+    <p class="card-text">{{contents}}</p>
     {{/each}}
+    
   </div>
 </div>
+<form>
+  <div class="form-group">
+    <label for="blogCommentLabel"><h2>Comment</h2></label>
+    <textarea class="createComment" id="commentText" rows="3"></textarea>
+  </div>
+  <button id="commentSubmit">Submit</button>
+</form>
 
-<script src="./js/singleblogpost.js"></script>
+
+{{!-- <script src="./js/singleblogpost.js"></script> --}}
+<script src="/js/comment.js"></script>

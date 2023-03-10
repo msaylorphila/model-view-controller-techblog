@@ -28,15 +28,15 @@ BlogPost.init(
               model: 'user',
               key: 'id',
             },
-    }, 
     },
+  },
   {
     sequelize,
     createdAt: true,
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: "blogPost",
+    modelName: "blogpost",
   }
 );
 

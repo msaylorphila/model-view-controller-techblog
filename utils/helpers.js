@@ -11,4 +11,9 @@ module.exports = {
         new Date(date).getFullYear()
       }`;
     },
+    to_string: (object) => {
+      console.log(JSON.stringify(object))
+
+    }
   };
+
