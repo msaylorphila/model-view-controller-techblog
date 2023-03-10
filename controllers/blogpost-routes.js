@@ -5,7 +5,10 @@ const router = require('express').Router();
 ////get a single blogpost
 router.get('/:id', async (req, res) => {
     try {
-      const dbBlogPostData = await BlogPost.findByPk(req.params.id, {
+      const dbBlogPostData = await BlogPost.findOne({
+        where: {
+          id: req.params.id
+        },
         include: [
             {
                 model: User, 
@@ -22,14 +25,15 @@ router.get('/:id', async (req, res) => {
                 'blogpost_id',
                 'createdAt'],
                 
-                include: {
-                model: User,
-                attributes:
-              ['username',
-            'id']}
+                  include: {
+                     model: User,
+                      attributes: [
+                        'username',
+                        'id'
+                      ]}
            
             }
-          ]
+       ]
     })
         // const comments = await Comment.findAll({
         //   where: {
