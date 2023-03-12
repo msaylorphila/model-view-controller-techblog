@@ -50,7 +50,7 @@ router.get('/:id', async (req, res) => {
       const blogPost = dbBlogPostData.get({ plain: true });
       // const comments = commentData.get({ plain: true })
       // console.log(comments)
-      console.log(blogPost)
+      // console.log(blogPost)
       if (loggedIn){
         res.render('blogPost', { blogPost, loggedIn: req.session.loggedIn });
       } else {

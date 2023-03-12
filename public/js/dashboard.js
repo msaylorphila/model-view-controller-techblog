@@ -15,7 +15,7 @@ const blogPostSubmit = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/');
+        document.location.replace('/dashboard');
       } else {
         alert('Please check that you have filled all required fields');
       }

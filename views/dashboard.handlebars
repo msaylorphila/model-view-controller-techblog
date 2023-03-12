@@ -10,4 +10,21 @@
   <button id="submitBlog">Submit</button>
 </form>
 
+{{#each myBlogs as |myBlog| }}
+<div class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title">{{myBlog.title}}</h5>
+     <div class="card-title">Created by: {{myBlog.user.username}} on: {{ format_date myBlog.createdAt}}</div>
+    <p class="card-text">{{myBlog.contents}}</p>
+    {{#each myBlog.comments }}
+         <div class="card-title">Created by: {{user.username}} on: {{ format_date createdAt}}</div>
+    <p class="card-text">{{contents}}</p>
+    {{/each}}
+    </div>
+    </div>
+{{/each}}
+
+
+
+
 <script src="./js/dashboard.js"></script>
