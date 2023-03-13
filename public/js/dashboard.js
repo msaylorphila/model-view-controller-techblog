@@ -1,4 +1,6 @@
 const blogSubmit = document.getElementById('submitBlog');
+const createNewBlogBtn = document.getElementById('createNewBlog');
+const newBlogForm = document.getElementById('newBlogForm');
 
 const blogPostSubmit = async (event) => {
     event.preventDefault();
@@ -22,4 +24,10 @@ const blogPostSubmit = async (event) => {
     }
   };
 
- blogSubmit.addEventListener('click', blogPostSubmit)
+const handleBlogForm = (event) => {
+createNewBlogBtn.classList.add('d-none');
+newBlogForm.classList.remove('d-none')
+}
+
+createNewBlogBtn.addEventListener('click', handleBlogForm)
+blogSubmit.addEventListener('click', blogPostSubmit)
