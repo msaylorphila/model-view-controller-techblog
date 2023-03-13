@@ -139,4 +139,30 @@ router.get('/:id', async (req, res) => {
     }
   });
 
+
+router.put('/:id', async (req, res) => {
+  // update a category by its `id` value
+  try {
+    const blogPostData = await BlogPost.findByPk(req.params.id, {
+      include: [{ model: User }]
+    });
+   const blogPostUpdate = await BlogPost.update(
+      {title: req.body.title,
+      contents: req.body.contents,
+      user_id: req.session.user_id},
+      {where: {
+        id: req.params.id}}
+    );
+    if (!blogPostData) {
+      res.status(404).json({ message: 'No blog found with that id!' });
+      return;
+    };
+    res.status(200).json(blogPostUpdate)
+      return;
+  } catch (err) {
+    res.status(500).json(err)
+  }
+});
+
+
   module.exports = router
