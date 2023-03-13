@@ -1,6 +1,7 @@
 const blogSubmit = document.getElementById('submitBlog');
 const createNewBlogBtn = document.getElementById('createNewBlog');
 const newBlogForm = document.getElementById('newBlogForm');
+const blogList = document.querySelector('.blog-list');
 
 const blogPostSubmit = async (event) => {
     event.preventDefault();
@@ -29,5 +30,23 @@ createNewBlogBtn.classList.add('d-none');
 newBlogForm.classList.remove('d-none')
 }
 
+const delButtonHandler = async (event) => {
+    if (event.target.hasAttribute('delete-id')) {
+      const id = event.target.getAttribute('delete-id');
+      console.log(id)
+      const response = await fetch(`/api/blogpost/${id}`, {
+        method: 'DELETE',
+      });
+  
+      if (response.ok) {
+        document.location.replace('/dashboard');
+      } else {
+        alert('Failed to delete blog');
+      }
+    }
+  };
+
+  
+blogList.addEventListener('click', delButtonHandler);
 createNewBlogBtn.addEventListener('click', handleBlogForm)
 blogSubmit.addEventListener('click', blogPostSubmit)

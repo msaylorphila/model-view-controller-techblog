@@ -1,5 +1,7 @@
 const { json } = require('sequelize');
 const { BlogPost, User, Comment } = require('../models');
+const withAuth = require('../utils/withAuth');
+
 const router = require('express').Router();
 
 ////get a single blogpost
@@ -117,5 +119,24 @@ router.get('/:id', async (req, res) => {
       res.status(err)
     }
   })
+  router.delete('/:id', async (req, res) => {
+    try {
+      const blogData = await BlogPost.destroy({
+        where: {
+          id: req.params.id,
+          user_id: req.session.user_id,
+        },
+      });
+  
+      if (!blogData) {
+        res.status(404).json({ message: 'No blogpost found with this id!' });
+        return;
+      }
+  
+      res.status(200).json(blogData);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
   module.exports = router
