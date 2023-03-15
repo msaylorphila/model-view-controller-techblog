@@ -1,3 +1,10 @@
+* {
+ font-family: 'Courier New', Courier, monospace;
+}
+
+textarea{
+    border-radius: 
+}
 
 a {
     color: black;
@@ -22,5 +29,6 @@ body{
 }
 
 nav{
-    background-color: #78866b
+    background-color: #78866b;
+    font-weight:500
 }
