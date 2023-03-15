@@ -1,4 +1,4 @@
-<button id="createNewBlog">Create new blog!</button>
+<button type="button" class="btn" id="createNewBlog">Create new blog!</button>
 <form class="d-none" id="newBlogForm">
   <div class="form-group">
     <label for="blogTitle"><h2>Title</h2></label>
@@ -8,15 +8,16 @@
     <label for="blogContent"><h2>Content</h2></label>
     <textarea class="createBlog" id="blogContentInput" rows="3"></textarea>
   </div>
-  <button id="submitBlog">Submit</button>
+  <button type="button" class="btn btn-primary" id="submitBlog">Submit</button>
 </form>
+<div class="row container-fluid">
 {{#if myBlogs.length}}
 <div class="blog-list">
 {{#each myBlogs as |myBlog|}}
   <div class="card mb-3">
     <div class="card-body">
-      <button id="update-id" updateId="{{myBlog.id}}" class="update-blog">Update Blog</button>
-      <button class="delete-blog" delete-id="{{myBlog.id}}">Delete Blog</button>
+      <button type="button" class="btn update-blog" id="update-id" updateId="{{myBlog.id}}">Update Blog</button>
+      <button type="button" class="btn delete-blog" delete-id="{{myBlog.id}}">Delete Blog</button>
       <h5 class="card-title">{{myBlog.title}}</h5>
       <div class="card-title">Created by:
         {{myBlog.user.username}}
@@ -41,12 +42,13 @@
                 <label for="blogContent"><h2>Update Content</h2></label>
                 <textarea class="updateBlogConentInput" id="blogContentUpdate-{{myBlog.id}}" rows="3"></textarea>
             </div>
-            <button updateId="{{myBlog.id}}" id="submit-updated-blog">Submit</button>
+            <button type="button" class="btn" updateId="{{myBlog.id}}" id="submit-updated-blog">Submit</button>
             </form>
     </div>
   </div>
 {{/each}}
 {{/if}}
+</div>
 </div>
 
 <script src="./js/dashboard.js"></script>
