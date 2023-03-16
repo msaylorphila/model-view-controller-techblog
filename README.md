@@ -3,6 +3,7 @@
 ## Description
 
 This is a model-view-controller blogsite made to create posts, comment on posts, and view your own user account.
+![Screenshot of Techblog](./public/images/screenshot.png)
 
 ## License
 
