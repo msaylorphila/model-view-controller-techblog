@@ -43,11 +43,11 @@ router.get('/:id', async (req, res) => {
       // const comments = commentData.get({ plain: true })
       // console.log(comments)
       console.log(blogPost)
-      if (loggedIn){
+      // if (loggedIn){
         res.render('blogPost', { blogPost, loggedIn: req.session.loggedIn });
-      } else {
-        res.redirect('/login')
-      }
+      // } else {
+      //   res.redirect('/login')
+      // }
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
