@@ -37,22 +37,12 @@ router.get('/:id', async (req, res) => {
             }
        ]
     })
-        // const comments = await Comment.findAll({
-        //   where: {
-        //     blogpost_id: req.params.id
-        //   },
-        //   include: { model: User,
-        //     attributes: [
-        //       'id',
-        //       'username'
-        //     ]
-        //   }
-        // });
+        console.log(dbBlogPostData)
         let loggedIn = req.session.loggedIn
       const blogPost = dbBlogPostData.get({ plain: true });
       // const comments = commentData.get({ plain: true })
       // console.log(comments)
-      // console.log(blogPost)
+      console.log(blogPost)
       if (loggedIn){
         res.render('blogPost', { blogPost, loggedIn: req.session.loggedIn });
       } else {
