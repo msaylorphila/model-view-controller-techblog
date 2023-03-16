@@ -70,7 +70,6 @@ const submitFormHandler = async (event) => {
  
     
     const id = event.currentTarget.getAttribute('updateId');
-        // console.log(id);
         const title = document.getElementById(`blogTitleUpdate-${id}`).value.trim()
         const contents = document.getElementById(`blogContentUpdate-${id}`).value.trim()
         if (title && contents && id) {
@@ -79,7 +78,6 @@ const submitFormHandler = async (event) => {
             body: JSON.stringify({ id, title, contents }),
             headers: { 'Content-Type': 'application/json' },
         });
-        console.log(response)
         if (response.ok) {
             document.location.replace('/dashboard');
           } else {

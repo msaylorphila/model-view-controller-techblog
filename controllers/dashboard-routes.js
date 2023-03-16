@@ -35,14 +35,8 @@ router.get('/', async (req, res) => {
             }
        ]
     })
-      // console.log(myBlogs)
-      // console.log(req.session.id)
-      // const myblogPosts = myBlogs.map((blogPost) =>
-      // blogPost.get({ plain: true }))
-      // console.log(myblogPosts)
       const myBlogs = dbBlogPostData.map((blogPost) =>
       blogPost.get({ plain: true }))
-      console.log(myBlogs);
     ;    let loggedIn = req.session.loggedIn;
       if (loggedIn) {
         res.render("dashboard", {

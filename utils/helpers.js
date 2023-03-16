@@ -14,6 +14,14 @@ module.exports = {
     to_string: (object) => {
       console.log(JSON.stringify(object))
 
+    },
+    userCheck: (viewingUser, commentAuthor) => {
+      if (viewingUser === commentAuthor) {
+        console.log(viewingUser)
+        return true
+      } else {
+        return false
+      }
     }
   };
 

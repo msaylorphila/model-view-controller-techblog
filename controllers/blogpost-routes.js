@@ -37,14 +37,13 @@ router.get('/:id', async (req, res) => {
             }
        ]
     })
-        console.log(dbBlogPostData)
         let loggedIn = req.session.loggedIn
       const blogPost = dbBlogPostData.get({ plain: true });
-      // const comments = commentData.get({ plain: true })
-      // console.log(comments)
-      console.log(blogPost)
+     
       if (loggedIn){
-        res.render('blogpost', { blogPost, loggedIn: req.session.loggedIn });
+        res.render('blogpost', { blogPost,
+          viewingUser: req.session.user_id,
+           loggedIn: req.session.loggedIn });
       } else {
         res.redirect('/login')
       }
@@ -79,7 +78,6 @@ router.get('/:id', async (req, res) => {
             user_id: req.session.user_id,
             blogpost_id: req.params.id
           })
-          console.log(newComment)
           if (newComment.contents && newComment.user_id && newComment.blogpost_id) {
             return res.status(200).json(newComment);
           } else {
@@ -99,7 +97,6 @@ router.get('/:id', async (req, res) => {
         contents: req.body.contents,
         user_id: req.session.user_id
       })
-      console.log(newBlog)
       if (newBlog.title && newBlog.contents && newBlog.user_id) {
         return res.status(200).json(newBlog);
       } else {
@@ -109,6 +106,8 @@ router.get('/:id', async (req, res) => {
       res.status(err)
     }
   })
+
+  ///delete a blogpost
   router.delete('/:id', async (req, res) => {
     try {
       const blogData = await BlogPost.destroy({
