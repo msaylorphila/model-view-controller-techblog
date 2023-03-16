@@ -44,7 +44,7 @@ router.get('/:id', async (req, res) => {
       // console.log(comments)
       console.log(blogPost)
       if (loggedIn){
-        res.render('blogpost', { blogpost, loggedIn: req.session.loggedIn });
+        res.render('blogpost', { blogPost, loggedIn: req.session.loggedIn });
       } else {
         res.redirect('/login')
       }
