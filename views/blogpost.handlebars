@@ -6,7 +6,7 @@
     <p class="card-text">{{blogPost.contents}}</p>
     {{#each blogPost.comments }}
 
-         <div class="card-title">Created by: {{user.username}} on: {{ format_date createdAt}}</div>
+         <div class="card-title">Comment by: {{user.username}} on: {{ format_date createdAt}}</div>
     <p class="card-text">{{contents}}</p>
     {{/each}}
     </div>
