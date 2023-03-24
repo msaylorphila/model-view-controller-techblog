@@ -1,6 +1,21 @@
 <div class="row">
 <div class="card mb-3">
   <div class="card-body">
+    {{#if (userCheck viewingUser blogPost.user.id)}}
+      <button type="button" class="btn update-blog" id="update-id" updateId="{{blogPost.id}}">Update Blog</button>
+      <button type="button" class="btn delete-blog" delete-id="{{blogPost.id}}">Delete Blog</button>
+      <form class="d-none" id="update-blog-form">
+            <div class="form-group">
+                <label for="blogTitle">Update Title</label>
+                <input type="text" class="updateBlogTitleInput" id="blogTitleUpdate-{{blogPost.id}}" />
+            </div>
+            <div class="form-group">
+                <label for="blogContent">Update Content</label>
+                <textarea class="updateBlogContentInput" id="blogContentUpdate-{{blogPost.id}}" rows="3"></textarea>
+            </div>
+            <button type="button" class="btn" updateId="{{blogPost.id}}" id="submit-updated-blog">Submit</button>
+            </form>
+    {{/if}}
     <h5 class="card-title">{{blogPost.title}}</h5>
      <div class="card-title">Created by: {{blogPost.user.username}} on: {{ format_date blogPost.createdAt}}</div>
     <p class="card-text">{{blogPost.contents}}</p>
@@ -35,5 +50,5 @@
 </form>
 
 
-{{!-- <script src="./js/singleblogpost.js"></script> --}}
+<script src="/js/singleblog.js"></script>
 <script src="/js/comment.js"></script>
