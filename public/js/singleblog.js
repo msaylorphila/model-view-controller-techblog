@@ -2,7 +2,7 @@ const submitUpdatedBlog = document.querySelector('#submit-updated-blog')
 const deleteBlog = document.querySelector('.delete-blog')
 const updateBlog = document.getElementById('update-id')
 
-const delButtonHandler = async (event) => {
+const delSingButtonHandler = async (event) => {
     if (event.target.hasAttribute('delete-id')) {
       const id = event.target.getAttribute('delete-id');
       console.log(id)
@@ -52,12 +52,12 @@ const submitFormHandler = async (event) => {
           }
     }}
 
-
-  
-deleteBlog.addEventListener('click', delButtonHandler);
+updateBlog.addEventListener('click', updateFormHandler)
 
 submitUpdatedBlog.addEventListener('click',
-    submitFormHandler
+  submitFormHandler
 )
+deleteBlog.addEventListener('click', delSingButtonHandler);
 
-updateBlog.addEventListener('click', updateFormHandler)
+
+

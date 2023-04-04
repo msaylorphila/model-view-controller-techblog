@@ -87,9 +87,9 @@ const submitFormHandler = async (event) => {
 
 
   
-blogList.addEventListener('click', delButtonHandler);
 createNewBlogBtn.addEventListener('click', handleBlogForm);
 blogSubmit.addEventListener('click', blogPostSubmit);
+blogList.addEventListener('click', delButtonHandler);
 updateBlogBtns.forEach(el => el.addEventListener('click',
     updateFormHandler
 ))
