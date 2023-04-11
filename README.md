@@ -32,7 +32,6 @@ When one initially enters a site they are able to view posts from different user
 
 [Click here to view the deployed webpage!](https://mvp-techblog.herokuapp.com/)
 
-If you follow this link you can view a video guiding you through this generator.
 
 ## Questions
 
